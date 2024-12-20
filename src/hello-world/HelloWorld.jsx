@@ -1,4 +1,3 @@
-import React from 'react';
 export default function HelloWorld(){
 
     return(
@@ -14,17 +13,19 @@ export default function HelloWorld(){
 
 // Membuat Component Baru
 function HeaderHelloWorld(){
+    const text = "Hello World"
     return(
     
-        <h1>Hello World</h1>
+        <h1>{text.toUpperCase()}</h1>
    
     )
 }
 
 function ParagraphHelloWorld(){
+    const p = "Selamat Belajar ReactJS dari Programmer Zaman Now"
     return(
   
-        <p>Selamat Belajar ReactJS dari Programmer Zaman Now</p>
+        <p>{p.toLowerCase()}</p>
   
     )
 }
