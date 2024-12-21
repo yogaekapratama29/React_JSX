@@ -1,31 +1,39 @@
 export default function HelloWorld(){
+    // Spread Syntax
+    const props = {
+        text : "Hello World Yoga"
+    }
 
     return(
-        
         <div>
-            <HeaderHelloWorld/>
+            {/* Mengirim Props */}
+            <HeaderHelloWorld {...props}/>
             <ParagraphHelloWorld/>
-        </div>
-        
-        
+        </div> 
     )
 }
 
-// Membuat Component Baru
-function HeaderHelloWorld(){
-    const text = "Hello World"
+// Membuat Component Baru (Destructuring Props)
+export function HeaderHelloWorld({text = "Ups saya lupa kasih Teks"}){
     return(
-    
-        <h1>{text.toUpperCase()}</h1>
+        <h1 style={{
+            color : "red",
+            backgroundColor : "aqua"
+        }}>{text.toUpperCase()}</h1>
    
     )
 }
 
+// Membuat Component Baru (Biasa)
 function ParagraphHelloWorld(){
     const p = "Selamat Belajar ReactJS dari Programmer Zaman Now"
+    const style = {
+        color : "blue",
+        backgroundColor :"yellow"
+    }
     return(
   
-        <p>{p.toLowerCase()}</p>
+        <p style={style}>{p.toLowerCase()}</p>
   
     )
 }
