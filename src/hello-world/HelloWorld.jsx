@@ -1,3 +1,5 @@
+import "./HelloWorld.css"
+
 export default function HelloWorld(){
     // Spread Syntax
     const props = {
@@ -16,10 +18,13 @@ export default function HelloWorld(){
 // Membuat Component Baru (Destructuring Props)
 export function HeaderHelloWorld({text = "Ups saya lupa kasih Teks"}){
     return(
-        <h1 style={{
-            color : "red",
-            backgroundColor : "aqua"
-        }}>{text.toUpperCase()}</h1>
+        // Bisa langsung deklarasi
+        // <h1 style={{
+        //     color : "red",
+        //     backgroundColor : "aqua"
+        // }}>{text.toUpperCase()}</h1>
+
+        <h1 className="title">{text.toUpperCase()}</h1>
    
     )
 }
@@ -27,13 +32,9 @@ export function HeaderHelloWorld({text = "Ups saya lupa kasih Teks"}){
 // Membuat Component Baru (Biasa)
 function ParagraphHelloWorld(){
     const p = "Selamat Belajar ReactJS dari Programmer Zaman Now"
-    const style = {
-        color : "blue",
-        backgroundColor :"yellow"
-    }
     return(
   
-        <p style={style}>{p.toLowerCase()}</p>
+        <p className="content">{p.toLowerCase()}</p>
   
     )
 }
