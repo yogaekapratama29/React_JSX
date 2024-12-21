@@ -4,12 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import HelloWorld from './hello-world/HelloWorld.jsx'
 import Container from './hello-world/Container.jsx'
+import TodoList from './todolist/TodoList.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Container>
      <HelloWorld/>
+     <TodoList/>
     </Container>
   </StrictMode>,
 )
