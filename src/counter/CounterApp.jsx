@@ -8,11 +8,23 @@ export default function CounterApp(){
         setShow2(e.target.checked);
     }
 
-    return (
-        <div>
+    // Without Reset State
+
+    // return (
+    //     <div>
             
-            {show2 ? <Counter name="Eka"/> : <p>Hilang</p>}
-            <input type="checkbox" checked = {show2} onChange={handleChange} /> Tampilkan Counter 2
+    //         {show2 ? <Counter name="Eka"/> : <p>Hilang</p>}
+    //         <input type="checkbox" checked = {show2} onChange={handleChange} /> Tampilkan Counter 2
+    //     </div>
+    // )
+
+    // With Reset State
+
+    return(
+        <div>
+         {show2 ? <Counter key= "1" name="2"/> : <Counter key= "2" name="1"/>}
+
+            <input type="checkbox" checked = {show2} onChange={handleChange} /> Tampilkan
         </div>
     )
 }
