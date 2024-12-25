@@ -5,7 +5,12 @@ export default function Counter(){
     return(
         <div>
             <button onClick={() => {
-                setCounter(counter + 1);
+                // setCounter(counter + 1);
+
+                // State Update menggunakan lamda
+                setCounter((c) => c + 1);
+                setCounter((c) => c + 1);
+                setCounter((c) => c + 1);
                 console.log(counter);
             }}>Increment</button>
 
