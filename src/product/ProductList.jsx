@@ -4,28 +4,27 @@ import { useState } from "react";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
-  const loaded = useRef(false);
+  const [load, setLoad] = useState(false);
+
+  function handleClick() {
+    setLoad(true);
+  }
 
   useEffect(() => {
     console.log("useEffect");
-    
-    if (loaded.current === false) {
+
+    if (load) {
       fetch("/product.json")
         .then((response) => response.json())
         .then((data) => {
           setProducts(data);
-        })
-        .then(() => {
-          loaded.current = true;
-        });
-        return(()=>{
-            console.log("cleanup");
         });
     }
-  });
+  },[load]);
   return (
     <>
       <h1>Product List</h1>
+      <button onClick={handleClick}>Load Products</button>
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
