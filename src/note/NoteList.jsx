@@ -1,21 +1,18 @@
-import Note from "./Note";
-export default function NoteList({ notes, onChange, onDelete }) {
-    if (!Array.isArray(notes)) {
-      return <div>Data Notes Tidak Valid</div>;
-    }
-  
+import { useContext } from "react";
+import Note from "./Note.jsx";
+import {NotesContext} from "./NoteContext.jsx,"
+export default function NoteList() {
+    const notes = useContext(NotesContext);
     return (
       <ul>
         {notes.map((note) => (
           <li key={note.id}>
             <Note
               note={note}
-              onChange={onChange}
-              onDelete={onDelete}
             />
           </li>
         ))}
       </ul>
     );
   }
-  
+    

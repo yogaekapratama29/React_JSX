@@ -1,9 +1,7 @@
 import { useImmerReducer } from "use-immer";
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
-
-
-
+import { NoteContext } from "./NoteContext.jsx";
 
 let id = 0;
 const initialNotes = [
@@ -77,37 +75,37 @@ function notesReducer(notes, action){
 export default function NoteApp() {
     const [notes, dispatch] = useImmerReducer(notesReducer,initialNotes)
   
-    function handleAddNote(text) {
-        dispatch({
-            type : "ADD_NOTE",
-            text : text
-        })
-    }
+    // function handleAddNote(text) {
+    //     dispatch({
+    //         type : "ADD_NOTE",
+    //         text : text
+    //     })
+    // }
   
-    function handleChangeNotes(note) {
-        dispatch({
-            type : "CHANGE_NOTE",
-            id : note.id,
-            text : note.text,
-            done : note.done
-        })
-    }
+    // function handleChangeNotes(note) {
+    //     dispatch({
+    //         type : "CHANGE_NOTE",
+    //         id : note.id,
+    //         text : note.text,
+    //         done : note.done
+    //     })
+    // }
   
-    function handleDeleteNotes(note) {
-        dispatch({
-            type : "DELETE_NOTE",
-            id : note.id
-        })
-    }
+    // function handleDeleteNotes(note) {
+    //     dispatch({
+    //         type : "DELETE_NOTE",
+    //         id : note.id
+    //     })
+    // }
   
     return (
       <div>
+        <NotesContext.Provider value={notes}>
+        <NotesDispatchContext.Provider value = {dispatch}>
         <h1>Note App</h1>
-        <NoteForm onAddNote={handleAddNote} />
-        <NoteList
-          notes={notes}
-          onChange={handleChangeNotes}
-          onDelete={handleDeleteNotes}
-        />
+        <NoteForm/>
+        <NoteList/>
+        </NotesDispatchContext.Provider>
+        </NotesContext.Provider>
       </div>
     )}
