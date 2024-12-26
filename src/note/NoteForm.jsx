@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NoteDispatchContext } from "./NoteContext";
+import { NoteDispatchContext } from "./NoteContext.jsx";
 
 export default function NoteForm(){
     const [text,setText] = useState("");
@@ -10,13 +10,12 @@ export default function NoteForm(){
     }
 
     function handleClick(){
-        dispatch = {
+        dispatch ({
             type : "ADD_NOTE",
-            text : "text",
-        }
-        setText("");
+            text : text
+        })
+        setText('');
     }
-
     return(
         <>
         <input placeholder="Add Note" value={text} onChange={handleChange}/>

@@ -2,6 +2,7 @@ import { useImmerReducer } from "use-immer";
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
 import { NoteContext } from "./NoteContext.jsx";
+import { NoteDispatchContext } from "./NoteContext.jsx";
 
 let id = 0;
 const initialNotes = [
@@ -100,12 +101,12 @@ export default function NoteApp() {
   
     return (
       <div>
-        <NotesContext.Provider value={notes}>
-        <NotesDispatchContext.Provider value = {dispatch}>
+        <NoteContext.Provider value={notes}>
+        <NoteDispatchContext.Provider value = {dispatch}>
         <h1>Note App</h1>
         <NoteForm/>
         <NoteList/>
-        </NotesDispatchContext.Provider>
-        </NotesContext.Provider>
+        </NoteDispatchContext.Provider>
+        </NoteContext.Provider>
       </div>
     )}

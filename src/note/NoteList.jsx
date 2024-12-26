@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import Note from "./Note.jsx";
-import {NotesContext} from "./NoteContext.jsx,"
+import { NoteContext } from "./NoteContext.jsx";
 export default function NoteList() {
-    const notes = useContext(NotesContext);
+    const notes = useContext(NoteContext);
     return (
       <ul>
         {notes.map((note) => (
