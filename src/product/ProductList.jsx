@@ -18,6 +18,9 @@ export default function ProductList() {
         .then(() => {
           loaded.current = true;
         });
+        return(()=>{
+            console.log("cleanup");
+        });
     }
   });
   return (
