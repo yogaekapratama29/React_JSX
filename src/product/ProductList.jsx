@@ -15,17 +15,32 @@ export default function ProductList() {
     console.log("useEffect");
   },[]);
 
-  useEffect(() => {
-    console.log("useEffect with []");
+    // Menggunakan Promise
+    //   useEffect(() => {
+    //     console.log("useEffect with []");
 
-    if (load) {
-      fetch("/product.json")
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
-        });
-    }
-  },[load]);
+    //     if (load) {
+    //       fetch("/product.json")
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //           setProducts(data);
+    //         });
+    //     }
+    //   },[load]);
+
+    // Menggunakan async await
+    useEffect(()=> {
+        async function fetchProduct(){
+            const response = await fetch("/product.json");
+            const data = await response.json();
+            setProducts(data);
+        }
+
+        console.log("Load prosducts");
+        if(load){
+            fetchProduct();
+        }
+    },[load]);
   return (
     <>
       <h1>Product List</h1>
