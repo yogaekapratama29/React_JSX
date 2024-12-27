@@ -10,8 +10,13 @@ export default function ProductList() {
     setLoad(true);
   }
 
+  // Use Effect with empty array untuk menjalankan efek sekali saja
   useEffect(() => {
     console.log("useEffect");
+  },[]);
+
+  useEffect(() => {
+    console.log("useEffect with []");
 
     if (load) {
       fetch("/product.json")
